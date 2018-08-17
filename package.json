@@ -1,0 +1,8 @@
+{
+  "name": "hello-js-stack",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/pluto-atom-4/hello-js-stack.git",
+  "author": "pluto-atom-4 <genko2@hotmail.com>",
+  "license": "MIT"
+}
