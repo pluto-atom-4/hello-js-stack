@@ -6,21 +6,29 @@
   "author": "pluto-atom-4 <genko2@hotmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "babel-node src",
+    "start": "yarn dev:start",
+    "dev:start": "nodemon --ignore lib --exec babel-node src/server",
+    "prod:build": "rimraf lib && babel src -d lib --igonre .test.js",
+    "prod:start": "cross-env NODE_ENV=production pm2 start lib/server && pm2 logs",
+    "prod:stop": "pm2 delete server",
     "test": "eslint src && flow && jest --coverage",
     "precommit": "yarn test",
-    "prepush": "yarn test"
+    "prepush": "yarn test && yarn prod:build"
   },
   "browserslist": [
     "> 1%"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "compression": "^1.7.3",
+    "express": "^4.16.3"
+  },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-eslint": "^8.2.6",
     "babel-jest": "^23.4.2",
     "babel-preset-env": "^1.7.0",
     "babel-preset-flow": "^6.23.0",
+    "cross-env": "^5.2.0",
     "eslint": "^5.3.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-compat": "^2.5.1",
@@ -30,6 +38,9 @@
     "eslint-plugin-react": "^7.11.0",
     "flow-bin": "^0.79.0",
     "husky": "^0.14.3",
-    "jest": "^23.5.0"
+    "jest": "^23.5.0",
+    "nodemon": "^1.18.3",
+    "pm2": "^3.0.3",
+    "rimraf": "^2.6.2"
   }
 }

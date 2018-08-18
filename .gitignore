@@ -138,3 +138,5 @@ typings/
 
 # Serverless directories
 .serverless
+
+/lib/
