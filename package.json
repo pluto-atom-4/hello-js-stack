@@ -6,7 +6,7 @@
   "author": "pluto-atom-4 <genko2@hotmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "babel-node src",
+    "start": "babel-node src/server",
     "test": "eslint src && flow && jest --coverage",
     "precommit": "yarn test",
     "prepush": "yarn test"
@@ -14,7 +14,10 @@
   "browserslist": [
     "> 1%"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "compression": "^1.7.3",
+    "express": "^4.16.3"
+  },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-eslint": "^8.2.6",
