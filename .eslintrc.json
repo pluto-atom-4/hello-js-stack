@@ -10,7 +10,8 @@
   "rules": {
     "semi": [2, "never"],
     "no-unexpected-multiline": "off",
-    "compat/compat": 2
+    "compat/compat": 2,
+    "react/jsx-wrap-multilines": false
   },
   "env": {
     "browser": true,
