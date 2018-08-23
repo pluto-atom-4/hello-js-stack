@@ -1,7 +1,8 @@
+/* eslint-disable indent */
 // @flow
 
 import 'babel-polyfill'
-
+import Immutable from 'immutable'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { AppContainer } from 'react-hot-loader'
@@ -12,15 +13,21 @@ import {
 import thunkMiddleware from 'redux-thunk'
 import { BrowserRouter } from 'react-router-dom'
 
-import App from './app'
-import helloReducer from './reducer/hello'
+import App from '../shared/app'
+import helloReducer from '../shared/reducer/hello'
 import { APP_CONTAINER_SELECTOR } from '../shared/config'
 import { isProd } from '../shared/utils'
 
-// eslint-disable-next-line no-underscore-dangle,max-len
+/* eslint-disable-next-line no-underscore-dangle,max-len */
 const composeEnhancers = (isProd ? undefined : window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose
+// eslint-disable-next-line no-underscore-dangle
+const preloadedState = window.__PRELOADED_STATE__
 
-const store = createStore(combineReducers({ hello: helloReducer }),
+
+const store = createStore(combineReducers(
+  /* eslint-disable-next-line function-paren-newline */
+  { hello: helloReducer }),
+  { hello: Immutable.fromJS(preloadedState.hello) },
   composeEnhancers(applyMiddleware(thunkMiddleware)))
 
 const rootEl = document.querySelector(APP_CONTAINER_SELECTOR)
@@ -44,9 +51,9 @@ if (rootEl !== null) {
 
 // flow-disable-next-line
 if (module.hot) {
-  module.hot.accept('./app', () => {
+  module.hot.accept('../shared/app', () => {
     // eslint-disable-next-line global-require
-    const NextApp = require('./app').default
+    const NextApp = require('../shared/app').default
     if (rootEl !== null) {
       ReactDOM.render(wrapApp(NextApp, store), rootEl)
     }
