@@ -10,7 +10,7 @@ const title = 'Async Hello Page'
 
 const HelloAsyncPage = () =>
 // eslint-disable-next-line implicit-arrow-linebreak
-  <div>
+  <div className="container mt-4">
     <Helmet
       title={title}
       meta={[
@@ -18,9 +18,13 @@ const HelloAsyncPage = () =>
         { property: 'og:title', content: title },
       ]}
     />
-    <h1>{title}</h1>
-    <MessageAync />
-    <HelloAsyncButton />
+    <div className="row">
+      <div className="col-12">
+        <h1>{title}</h1>
+        <MessageAync />
+        <HelloAsyncButton />
+      </div>
+    </div>
   </div>
 
 export default HelloAsyncPage

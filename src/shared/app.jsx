@@ -18,7 +18,7 @@ import {
 
 const App = () =>
 // eslint-disable-next-line implicit-arrow-linebreak
-  <div>
+  <div style={{ paddingTop: 54 }}>
     <Helmet titleTeamplate={`%s | ${APP_NAME}`} defaultTitle={APP_NAME} />
     <Nav />
     <Switch>

@@ -10,7 +10,7 @@ const title = 'Hello Page'
 
 const HelloPage = () =>
 // eslint-disable-next-line implicit-arrow-linebreak
-  <div>
+  <div className="container mt-4">
     <Helmet
       title={title}
       meta={[
@@ -18,9 +18,13 @@ const HelloPage = () =>
         { property: 'og:title', content: title },
       ]}
     />
-    <h1>{title}</h1>
-    <Message />
-    <HelloButton />
+    <div className="row">
+      <div className="col-12">
+        <h1>{title}</h1>
+        <Message />
+        <HelloButton />
+      </div>
+    </div>
   </div>
 
 export default HelloPage
