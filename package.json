@@ -18,8 +18,7 @@
     "heroku-postbuild": "yarn prod:build"
   },
   "engines": {
-    "node": "8.10.0",
-    "yarn": "1.9.4"
+    "node": "8.10.0"
   },
   "browserslist": [
     "> 1%"
