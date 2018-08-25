@@ -142,3 +142,4 @@ typings/
 /lib/
 /dist/
 .*/node_modules/jss/.*
+/.env
