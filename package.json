@@ -17,9 +17,6 @@
     "prepush": "yarn test && yarn prod:build",
     "heroku-postbuild": "yarn prod:build"
   },
-  "engines": {
-    "node": "8.10.0"
-  },
   "browserslist": [
     "> 1%"
   ],
